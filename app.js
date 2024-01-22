@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { render } = require('ejs');
-const { getDate } = require('./node_modules/getDay');
 
 const app = express();
 
