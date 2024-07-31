@@ -2,11 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { render } = require('ejs');
-
+const path = require('path');
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true}))
+app.engine("ejs", require("ejs").__express);
+app.set("views", path.join(__dirname, "./views"));
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
 
 mongoose.connect("mongodb+srv://rodrigochacon:11b0Jwf4AdmCIXmr@cluster0.wg7ktnz.mongodb.net/todolistDB");
